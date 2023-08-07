@@ -1,6 +1,6 @@
 <%@ tag body-content="scriptless" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
-<%@ attribute="title" %>
+<%@ attribute name="title" %>
 
 <layout:common title="${title}">
     <jsp:attribute name="header">

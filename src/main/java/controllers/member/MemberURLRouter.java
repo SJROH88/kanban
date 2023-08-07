@@ -21,6 +21,17 @@ public class MemberURLRouter implements URLRouter {
             controller = new LoginController();
         }else if(mode.equals("info")){
             controller = new InfoController();
+        }else if(mode.equals("find_id")){
+            controller = new FindIdController();
+        }else if(mode.equals("find_pw")){
+            controller = new FindPwController();
+        }
+        if(controller !=null){
+            if(method.equals("POST")){
+                controller.post(request,response);
+            }else{
+                controller.get(request,response);
+            }
         }
     }
 }
