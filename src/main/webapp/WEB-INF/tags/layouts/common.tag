@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ attribute name="header" fragment="true" %>
 <%@ attribute name="footer" fragment="true" %>
-<%@ attribute="title" %>
+<%@ attribute name="title" %>
 <c:url var="cssUrl" value="/static/css/" />
 <c:url var="jsUrl" value="/static/js/" />
 <!DOCTYPE html>

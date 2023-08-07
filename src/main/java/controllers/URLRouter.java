@@ -1,10 +1,13 @@
 package controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public interface URLRouter {
-    void route(String URL, String location);
+    void route(HttpServletRequest req, HttpServletResponse resp,String location);
 
     default String getMode(String URL, String location) {
         String mode = null;

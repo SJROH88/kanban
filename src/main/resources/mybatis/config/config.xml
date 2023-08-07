@@ -6,7 +6,7 @@
     <properties>
         <property name="hostname" value="localhost" />
         <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/jsp_board?characterEncoding=UTF8&amp;serverTimezone=UTC" />
+        <property name="url" value="jdbc:mysql://localhost:3306/kanban" />
         <property name="username" value="kanban" />
         <property name="password" value="!shtlwns88" />
     </properties>

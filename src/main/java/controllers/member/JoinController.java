@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class JoinController implements Controller {
     public void get(HttpServletRequest req, HttpServletResponse resp) {
+
         System.out.println("회원 가입 - GET");
     }
 
