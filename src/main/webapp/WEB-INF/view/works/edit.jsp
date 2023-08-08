@@ -4,7 +4,7 @@
 <c:url var="action" value="/works/edit" />
 <layout:main title="작업 수정">
     <form name="frmSave" method="POST" action="${action}" autocomplete="off">
-        <jsp:include pate="_form.jsp"/>
+        <jsp:include page="_form.jsp"/>
 
         <div class="btns">
             <button type="reset">다시 입력</button>
