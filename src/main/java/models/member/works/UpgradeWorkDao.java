@@ -1,4 +1,4 @@
 package models.member.works;
 
-public class UpgradeWorkDao extends {
+public class UpgradeWorkDao extends WorkDao {
 }
