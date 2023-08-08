@@ -2,7 +2,6 @@
 칸반보드
 
 
-1
 ## 3일차
 
 * 컨트롤러 구성
@@ -26,3 +25,5 @@
  - 작업 등록 : /WEB-INF/works/add.jsp + _form.jsp(공통양식)
  - 작업 수정 : /WEB-INF/works/edit.jsp + _form.jsp(공통양식)
 * 칸반 등록, 수정, 삭제, 조회
+
+## 4일차
