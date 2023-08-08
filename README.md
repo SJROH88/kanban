@@ -25,4 +25,13 @@
  - 작업 조회 : /WEB-INF/works/view.jsp
  - 작업 등록 : /WEB-INF/works/add.jsp + _form.jsp(공통양식)
  - 작업 수정 : /WEB-INF/works/edit.jsp + _form.jsp(공통양식)
+
+## 4일차
+
+* 모델구성
+  - models/works/SaveService.java : 작업등록, 수정
+  - models/works/InfoService.java :  작업조회(개별 + 목록)
+  - models/works/DeleteService.java : 작업 삭제
+
 * 칸반 등록, 수정, 삭제, 조회
+
