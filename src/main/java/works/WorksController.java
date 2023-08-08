@@ -8,7 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-
+/**
+ * 작업목록 - /works
+ * 작업등록 - /works/add
+ * 작업조회 - /works/작업번호
+ * 작업수정 - /works/edit/등록번호
+ * 작업삭제 - /works/delete/등록번호
+ */
 @WebServlet("/works/*")
 public class WorksController extends HttpServlet {
     private URLRouter router;
