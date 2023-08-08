@@ -10,7 +10,7 @@
   - models/works/WorkSaveService.java : 작업등록, 수정
   - models/works/InfoService.java :  작업조회(개별 + 목록)
   - models/works/DeleteService.java : 작업 삭제
-  - models/works/WorksDao.java : 작업 CRUD
+  - models/works/WorkDao.java : 작업 CRUD
   - models/works/Work : 작업 DTO
   - 
 * 뷰 구성

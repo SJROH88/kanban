@@ -3,7 +3,7 @@ package models.member.works;
 import works.Work;
 
 public class SaveService {
-    private WorkDao workDao = new WorkDao();
+    private WorkDao workDao;
     public SaveService(WorkDao workDao){
         this.workDao = workDao;
     }
