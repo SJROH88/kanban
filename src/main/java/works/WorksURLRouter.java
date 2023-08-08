@@ -26,7 +26,7 @@ public class WorksURLRouter implements URLRouter {
             controller = new ListController();
 
         }else if (mode.equals("view")){
-
+            controller = new ViewController();
         }else if(mode.equals("add")||mode.equals("edit")){
             controller = new SaveController();
         }else if(mode.equals("delete")){

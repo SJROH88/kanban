@@ -8,6 +8,12 @@ import works.WorksController;
 import java.util.List;
 
 public class WorkDao {
+    /**
+     * 작업저장
+     * @param work
+     *             - workNo가 있으면 수정, 없으면 추가
+     * @return
+     */
     public boolean save(Work work){
         SqlSession sqlSession = DBConnection.getSession();
         long workNo = work.getWorkNo();
@@ -25,7 +31,10 @@ public class WorkDao {
         Work params = new Work();
         params.setWorkNo(workNo);
         int affectedRows = sqlSession.delete("WorkListMapper.delete",params);
-        return false;
+
+        sqlSession.commit();
+
+        return affectedRows > 0;
     }
     public Work get(long workNo){
         Work params = new Work();
@@ -33,6 +42,7 @@ public class WorkDao {
 
         SqlSession sqlSession = DBConnection.getSession();
         Work work = sqlSession.selectOne("WorkListMapper.each",params);
+
         return work;
     }
     public List<Work> gets(Work work){
