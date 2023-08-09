@@ -1,10 +1,12 @@
 package controllers;
 
-import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public interface Controller {
-    void get(HttpServletRequest req, HttpServletResponse resp);
+import java.io.IOException;
+
+public interface Controller{
+    void get(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
     void post(HttpServletRequest req, HttpServletResponse resp);
 }

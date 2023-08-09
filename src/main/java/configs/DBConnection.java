@@ -11,22 +11,23 @@ import java.util.ResourceBundle;
 
 public class DBConnection {
     private static SqlSessionFactory sqlSessionFactory;
-    static{
-        try {
-            //설정
-            ResourceBundle bundle = ResourceBundle.getBundle("configs.applicaetion");
-            String env = bundle.getString("environment");
 
+    static{
+        try{
+            //설정
+            ResourceBundle bundle = ResourceBundle.getBundle("config.application");
+            String env = bundle.getString("environment");
 
             String mode = env.equals("real") ? "real" : "dev";
             Reader reader = Resources.getResourceAsReader("mybatis/config/config.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader,mode);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public static SqlSession getSession(){
-
-        return sqlSessionFactory.openSession();
-    }
+        public static SqlSession getSession(){
+            return sqlSessionFactory.openSession();
+        }
 }
+
