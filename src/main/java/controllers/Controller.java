@@ -7,6 +7,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public interface Controller{
-    void get(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+    void get(HttpServletRequest req, HttpServletResponse resp);
     void post(HttpServletRequest req, HttpServletResponse resp);
 }

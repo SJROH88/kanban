@@ -15,7 +15,7 @@ public class DBConnection {
     static{
         try{
             //설정
-            ResourceBundle bundle = ResourceBundle.getBundle("config.application");
+            ResourceBundle bundle = ResourceBundle.getBundle("configs.application");
             String env = bundle.getString("environment");
 
             String mode = env.equals("real") ? "real" : "dev";
