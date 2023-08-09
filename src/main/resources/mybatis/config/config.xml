@@ -8,12 +8,12 @@
         <property name="driver" value="com.mysql.cj.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/kanban" />
         <property name="username" value="kanban" />
-        <property name="password" value="!shtlwns88" />
+        <property name="password" value="aA!123456" />
     </properties>
     <typeHandlers>
-        <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler"/>
-        <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler"/>
-        <typeHandler handler="org.apache.ibatis.type.LocalTimeTypeHandler"/>
+        <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" />
+        <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler" />
+        <typeHandler handler="org.apache.ibatis.type.LocalTimeTypeHandler" />
         <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler" javaType="models.works.Status" />
     </typeHandlers>
     <environments default="dev">
@@ -37,7 +37,7 @@
         </environment>
     </environments>
     <mappers>
-      <mapper resource="mybatis/mapper/UserMapper.xml"/>
-        <mapper resource="mybatis/mapper/WorkListMapper.xml"/>
+        <mapper resource="mybatis/mapper/UserMapper.xml" />
+        <mapper resource="mybatis/mapper/WorkListMapper.xml" />
     </mappers>
 </configuration>

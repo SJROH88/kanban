@@ -1,5 +1,5 @@
 package validators;
 
-public interface Vailidator<T> {
+public interface Validator<T> {
     void check(T t);
 }
