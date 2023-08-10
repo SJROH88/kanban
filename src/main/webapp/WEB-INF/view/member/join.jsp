@@ -4,6 +4,7 @@
 <c:url var="action" value="/member/join" />
 
 <layout:main title="회원가입">
+
 <form name="frmJoin" method="POST" action="${action}" autocomplete="off">
     <jsp:include page="_form.jsp" />
     <div>
@@ -15,4 +16,5 @@
         <button type="submit">가입하기</button>
     </div>
 </form>
+
 </layout:main>
