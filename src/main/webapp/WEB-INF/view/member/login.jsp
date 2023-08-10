@@ -1,7 +1,6 @@
-<%@ page contentType="text;html charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
-
 <c:url var="action" value="/member/login" />
 <c:url var="joinUrl" value="/member/join" />
 <c:url var="findIdUrl" value="/member/find_id" />
@@ -9,7 +8,7 @@
 <layout:main title="로그인">
     <form name="frmLogin" method="POST" action="${action}" autocomplete="off">
         <dl>
-            <dt>아이디</>
+            <dt>아이디</dt>
             <dd>
                 <input type="text" name="userId">
             </dd>
@@ -31,5 +30,4 @@
         </div>
         <button type="submit">로그인</button>
     </form>
-
 </layout:main>
