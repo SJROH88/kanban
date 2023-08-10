@@ -7,7 +7,7 @@
 
 <section class="layout_width contents">
     <h1>회원가입</h1>
-<form name="frmJoin" method="POST" action="${action}" autocomplete="off">
+<form name="frmJoin" method="POST" action="${action}" autocomplete="off" target="ifrmProcess">
     <jsp:include page="_form.jsp" />
     <div class="ac mt20">
         <input type="checkbox" name="agree" value="true" id="agree">

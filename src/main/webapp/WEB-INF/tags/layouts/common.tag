@@ -3,8 +3,8 @@
 <%@ attribute name="header" fragment="true" %>
 <%@ attribute name="footer" fragment="true" %>
 <%@ attribute name="title" %>
-<c:url var="cssUrl" value="/static/css" />
-<c:url var="jsUrl" value="/static/js" />
+<c:url var="cssUrl" value="/static/css/" />
+<c:url var="jsUrl" value="/static/js/" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,11 +17,11 @@
             <link rel="stylesheet" type="text/css" href="${cssUrl}${file}.css" />
         </c:forEach>
         </c:if>
-        <script src="${jsUrl}common.js"></jscript>
+        <script src="${jsUrl}common.js"></script>
         <c:if test="${addScript !=null}">
         <c:forEach var="file" items="${addScript}">
             <script src="${jsUrl}${file}.js"></script>
-        <c:forEach>
+        </c:forEach>
         </c:if>
     </head>
     <body>
