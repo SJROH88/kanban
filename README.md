@@ -56,7 +56,13 @@
   - models/member/UsersDao.java
   - models/member/JoinValidator.java
 
-
+## 7일차
+* 회원가입처리
+* 비밀번호 복잡성 처리
+* 휴대폰 유효성 검사 처리
+* 로그인 구현하기
+  - 모델구성
+  - 
 
 
 

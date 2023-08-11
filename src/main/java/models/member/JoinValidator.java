@@ -1,10 +1,12 @@
 package models.member;
 
 import controllers.member.UserForm;
+import validators.MobileValidator;
+import validators.PasswordValidator;
 import validators.RequiredValidator;
 import validators.Validator;
 
-public class JoinValidator implements Validator<UserForm>, RequiredValidator {
+public class JoinValidator implements Validator<UserForm>, RequiredValidator, PasswordValidator, MobileValidator {
     private UsersDao usersDao;
 
     public JoinValidator(UsersDao usersDao) {
@@ -15,8 +17,12 @@ public class JoinValidator implements Validator<UserForm>, RequiredValidator {
     public void check(UserForm userForm) {
         /**
          * 1. 필수 항목 검증(userId, userPw, userPwRe, userNm, email, 약관동의)
-         * 2. 아이디 중복 여부
-         * 3. userPw(비밀번호), userPwRe(비밀번호 확인) 일치
+         * 2. 아이디 자리수는 6자리 이상, 비밀번호는 8자리 이상
+         * 3. 아이디 중복 여부
+         * 4. userPw(비밀번호), userPwRe(비밀번호 확인) 일치
+         * 5. 비밀번호 복잡성(1개 이샹의 알파벳+1개이상의 대문자+1개이상의 숫자
+         * 6. 휴대전화번호 검증
+         * 7. 회원 가입 약관 동의 여부
          */
 
         String userId = userForm.getUserId();
@@ -24,7 +30,7 @@ public class JoinValidator implements Validator<UserForm>, RequiredValidator {
         String userPwRe = userForm.getUserPwRe();
         String userNm = userForm.getUserNm();
         String email = userForm.getEmail();
-
+        String mobile = userForm.getMobile();
         // 1. 필수 항목 검증
         checkRequired(userId, new JoinValidationException("아이디를 입력하세요."));
         checkRequired(userPw, new JoinValidationException("비밀번호를 입력하세요."));
@@ -41,5 +47,16 @@ public class JoinValidator implements Validator<UserForm>, RequiredValidator {
         if (!userPw.equals(userPwRe)) {
             throw new JoinValidationException("비밀번호가 일치하지 않습니다.");
         }
+
+        //5. 비밀번호 복잡성 체그
+        checkTrue(passwordCheck(userPw, 3),new JoinValidationException("비밀번호는 대소문자 각각 1개 이상, 숫자 1개 이상, 특수문자를 포함해서 입력하세요);"));
+
+        //6. 휴대번호
+        if(mobile !=null && !mobile.isBlank()){
+            mobile =mobile.replaceAll("\\D","");
+            checkTrue(mobileCheck(mobile), new JoinValidationException("휴대전화번호 형식이 아닙니다."));
+        }
+        // 7. 회원약관 동의 여부
+        checkTrue(userForm.isAgree(),new JoinValidationException("약관에 동의해 주세요"));
     }
 }
