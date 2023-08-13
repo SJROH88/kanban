@@ -4,6 +4,7 @@
 <%@ attribute name="title" %>
 <c:url var="mainUrl" value="/" />
 <c:url var="loginUrl" value="/member/login" />
+<c:url var="logoutUrl" value="/member/logout" />
 <c:url var="joinUrl" value="/member/join" />
 <c:url var="workListUrl" value="/works" />
 
@@ -28,6 +29,9 @@
                  <a href="${workListUrl}">
                     <i class="xi-list"></i>작업목록
                  </a>
+                  <a href="${logoutUrl}">
+                   <i class="xi-log-out"></i>로그아웃
+                  </a>
                  </c:if>
            </div>
         </section>
