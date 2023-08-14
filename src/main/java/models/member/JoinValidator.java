@@ -20,7 +20,7 @@ public class JoinValidator implements Validator<UserForm>, RequiredValidator, Pa
          * 2. 아이디 자리수는 6자리 이상, 비밀번호는 8자리 이상
          * 3. 아이디 중복 여부
          * 4. userPw(비밀번호), userPwRe(비밀번호 확인) 일치
-         * 5. 비밀번호 복잡성(1개 이샹의 알파벳+1개이상의 대문자+1개이상의 숫자
+         * 5. 비밀번호 복잡성(1개 이상의 알파벳+1개이상의 대문자+1개이상의 숫자
          * 6. 휴대전화번호 검증
          * 7. 회원 가입 약관 동의 여부
          */
@@ -48,13 +48,14 @@ public class JoinValidator implements Validator<UserForm>, RequiredValidator, Pa
             throw new JoinValidationException("비밀번호가 일치하지 않습니다.");
         }
 
-        //5. 비밀번호 복잡성 체그
-        checkTrue(passwordCheck(userPw, 3),new JoinValidationException("비밀번호는 대소문자 각각 1개 이상, 숫자 1개 이상, 특수문자를 포함해서 입력하세요);"));
+        //5. 비밀번호 복잡성 체크
+        //checkTrue(passwordCheck(userPw, 3),new JoinValidationException("비밀번호는 대소문자 각각 1개 이상, 숫자 1개 이상, 특수문자를 포함해서 입력하세요);"));
 
         //6. 휴대번호
         if(mobile !=null && !mobile.isBlank()){
             mobile =mobile.replaceAll("\\D","");
             checkTrue(mobileCheck(mobile), new JoinValidationException("휴대전화번호 형식이 아닙니다."));
+            userForm.setMobile(mobile);
         }
         // 7. 회원약관 동의 여부
         checkTrue(userForm.isAgree(),new JoinValidationException("약관에 동의해 주세요"));

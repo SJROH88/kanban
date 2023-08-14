@@ -20,6 +20,7 @@ public class LoginValidator implements Validator<HttpServletRequest>, RequiredVa
         String userId = request.getParameter("userId");
         String userPw = request.getParameter("userPw");
 
+        //1.필수항목 검증(userId, userPw)
         checkRequired(userId,new LoginValidationException("아이디를 입력하세요"));
         checkRequired(userPw,new LoginValidationException("비밀번호를 입력하세요"));
 
