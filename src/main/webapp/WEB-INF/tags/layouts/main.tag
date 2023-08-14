@@ -21,11 +21,12 @@
                 <a href="${loginUrl}">
                     <i class="xi-log-in"></i>로그인
                 </a>
-                </c:if>
+
                 <a href="${joinUrl}">
                     <i class="xi-user-plus"></i>회원가입
                 </a>
-                 <c:if test="${sessionScope.users == null}">
+                </c:if>
+                 <c:if test="${sessionScope.users != null}">
                  <a href="${workListUrl}">
                     <i class="xi-list"></i>작업목록
                  </a>
