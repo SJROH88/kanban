@@ -28,6 +28,8 @@ public class MemberURLRouter implements URLRouter {
             controller = new FindIdController();
         } else if (mode.equals("find_pw")) { // 비밀번호 찾기
             controller = new FindPwController();
+        } else if(mode.equals("logout")){
+            controller = (Controller) new LogoutController();
         }
 
         if (controller != null) {
