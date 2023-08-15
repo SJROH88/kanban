@@ -10,45 +10,45 @@
 <c:url var="joinUrl" value="/member/join" />
 <c:url var="workListUrl" value="/works" />
 
-<layout:common title="${title}" >
-    <jsp:attribute name="header" >
+<layout:common title="${title}">
+    <jsp:attribute name="header">
         <section id="site_top" class="layout_width">
-            <div class="left">
-                <a href="${mainUrl}" >
-                    <i class="xi-home"></i>메인페이지
+            <div class='left'>
+                <a href="${mainUrl}">
+                    <i class="xi-home"></i>
+                    메인페이지
                 </a>
             </div>
             <div class="right">
-                <c:if test="${sessionScope.users == null}">
-                <a href="${loginUrl}">
-                    <i class="xi-log-in"></i>로그인
-                </a>
-
-                <a href="${joinUrl}">
-                    <i class="xi-user-plus"></i>회원가입
-                </a>
+                <c:if test="${!isLogin}">
+                    <a href="${loginUrl}">
+                        <i class="xi-log-in"></i> 로그인
+                    </a>
+                    <a href="${joinUrl}">
+                        <i class="xi-user-plus"></i> 회원가입
+                    </a>
                 </c:if>
-                 <c:if test="${sessionScope.users != null}">
+                <c:if test="${isLogin}">
                     <span class="userinfo">
-                 <fmt:message key="LOGIN.MESSAGE">
-                    <fmt:param>${sessionScope.users.userNm}</fmt:param>
-                    <fmt:param>${sessionScope.users.userId}</fmt:param>
-                 </fmt:message>
-                 </span>
-                 <a href="${workListUrl}">
-                    <i class="xi-list"></i>작업목록
-                 </a>
-                  <a href="${logoutUrl}">
-                   <i class="xi-log-out"></i>로그아웃
-                  </a>
-                 </c:if>
-           </div>
+                        <fmt:message key="LOGIN.MESSAGE">
+                            <fmt:param>${userInfo.userNm}</fmt:param>
+                            <fmt:param>${userInfo.userId}</fmt:param>
+                        </fmt:message>
+                    </span>
+                    <a href="${workListUrl}">
+                        <i class="xi-list"></i> 작업목록
+                    </a>
+                    <a href="${logoutUrl}">
+                        <i class="xi-log-out"></i> 로그아웃
+                    </a>
+                </c:if>
+            </div>
         </section>
-        </jsp:attribute>
-        <jsp:attribute name="footer">
+    </jsp:attribute>
+    <jsp:attribute name="footer">
 
-        </jsp:attribute>
-        <jsp:body>
-            <jsp:doBody />
-        </jsp:body>
-    </layout:common>
+    </jsp:attribute>
+    <jsp:body>
+       <jsp:doBody />
+    </jsp:body>
+</layout:common>

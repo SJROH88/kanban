@@ -16,20 +16,20 @@ import static commons.ScriptUtils.go;
 public class LoginController implements Controller  {
     public void get(HttpServletRequest req, HttpServletResponse resp) {
 
-        req.setAttribute("addCss", new String[]{"member/login"});
+        req.setAttribute("addCss", new String[] {"member/login"});
         ViewUtils.load(req, resp, "member", "login");
     }
 
     public void post(HttpServletRequest req, HttpServletResponse resp) {
         try{
             LoginService loginService = MemberServiceManager.getInstance().loginService();
-            loginService.login(req,resp);
+            loginService.login(req, resp);
 
-            //로그인 성공
-            go(resp,req.getContextPath()+"/works","parent");
+            // 로그인 성공 -> 작업 목록 이동
+            go(resp, req.getContextPath() + "/works", "parent");
 
-        }catch(Exception e){
-            alertError(resp,e);
+        } catch (Exception e) {
+            alertError(resp, e);
         }
     }
 }
