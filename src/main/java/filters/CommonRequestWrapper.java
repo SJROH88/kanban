@@ -25,16 +25,15 @@ public class CommonRequestWrapper extends HttpServletRequestWrapper {
         boolean isAccessible = true;
 
         String URI = request.getRequestURI();
-        String redirectUrl = request.getContextPath();
+        String redirectURL = request.getContextPath();
         String message = null;
-
         // 회원전용 URL - 미로그인 상태인 경우
         if (!isLogin) {
             for (String url : getMemberOnlyUrls()) {
                 if (URI.indexOf(url) != -1) {
                     isAccessible = false;
-                    message="회원전용 서비스 입니다.";
-                    redirectUrl +="/member/login";
+                    message = "회원전용 서비스 입니다.";
+                    redirectURL += "/member/login";
                 }
             }
         }
@@ -44,18 +43,20 @@ public class CommonRequestWrapper extends HttpServletRequestWrapper {
             for (String url : getGuestOnlyUrls()) {
                 if (URI.indexOf(url) != -1) {
                     isAccessible = false;
-                    message="이미 로그인을 하셨습니다.";
-                    redirectUrl += "/works";
+                    message = "이미 로그인을 하셨습니다.";
+                    redirectURL += "/works";
                 }
             }
         }
 
         if (!isAccessible) { // 접근 권한 없음
             try {
-                request.setAttribute("message",message);
-                request.setAttribute("redirecdtUrl",redirectUrl);
+                request.setAttribute("message", message);
+                request.setAttribute("redirectURL", redirectURL);
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "접근 권한이 없습니다.");
-            } catch (IOException e) {}
+            } catch (IOException e) {
+                throw new RuntimeException();
+            }
         }
     }
 

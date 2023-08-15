@@ -6,14 +6,14 @@
          version="6.0">
     <filter>
         <filter-name>commonFilter</filter-name>
-        <filter_class>filters.CommonFilter</filter_class>
-        <filter-mapping>
-            <filter-name>commonFilter</filter-name>
-            <url-pattern>/*</url-pattern>
-        </filter-mapping>
+        <filter-class>filters.CommonFilter</filter-class>
     </filter>
-    <erro-page>
+    <filter-mapping>
+        <filter-name>commonFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <error-page>
         <error-code>401</error-code>
         <location>/WEB-INF/view/errors/401.jsp</location>
-    </erro-page>
+    </error-page>
 </web-app>
