@@ -1,6 +1,8 @@
 package models.works;
 
+import commons.MemberUtil;
 import jakarta.servlet.http.HttpServletRequest;
+import models.member.Users;
 import validators.Validator;
 
 public class SaveService {
@@ -36,6 +38,12 @@ public class SaveService {
         if (workNo != null && !workNo.isBlank()) {
             work.setWorkNo(Long.parseLong(workNo));
         }
+
+        if(MemberUtil.isLogin(req)){
+            Users users = MemberUtil.getUser(req);
+            work.setUserNo(users.getUserNo());
+        }
+
 
         save(work);
     }
