@@ -39,13 +39,13 @@
 
     <select id="each" parameterType="models.works.Work" resultMap="workMap">
         SELECT w.*, u.userNm FROM workList w
-                INNER JOIN users u ON w.userNo = u.userNo
+        LEFT JOIN users u ON w.userNo = u.userNo
         WHERE w.workNo=#{workNo}
     </select>
 
     <select id="list" parameterType="models.works.Work" resultMap="workMap">
         SELECT w.*, u.userNm FROM workList w
-                LEFT JOIN users ON w.userNo = u.userNo
+        LEFT JOIN users u ON w.userNo = u.userNo
         <trim prefix="WHERE" suffixOverrides="AND | OR">
             <if test="userNo >= 0">
                 w.userNo=#{userNo} AND

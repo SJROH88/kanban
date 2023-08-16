@@ -54,9 +54,7 @@ public class CommonRequestWrapper extends HttpServletRequestWrapper {
                 request.setAttribute("message", message);
                 request.setAttribute("redirectURL", redirectURL);
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "접근 권한이 없습니다.");
-            } catch (IOException e) {
-                throw new RuntimeException();
-            }
+            } catch (IOException e) {}
         }
     }
 

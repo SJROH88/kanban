@@ -15,4 +15,12 @@ public class MemberUtil {
 
         return userInfo;
     }
+
+    public static void isMine(HttpServletRequest req,long userNo){
+        if(isLogin(req) && getUser(req).getUserNo() == userNo){
+            return;
+        }
+        // 비회원 또는 회원번호 불일치
+        throw new NotAuthorizationException();
+    }
 }
