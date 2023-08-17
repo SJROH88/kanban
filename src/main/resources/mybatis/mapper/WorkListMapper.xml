@@ -14,22 +14,22 @@
 
     <insert id="add" parameterType="models.works.Work" useGeneratedKeys="true" keyProperty="workNo">
         INSERT INTO workList (userNo, status, subject, content)
-        VALUES (#{userNo}, #{status}, #{subject}, #{content})
+            VALUES (#{userNo}, #{status}, #{subject}, #{content})
     </insert>
 
     <update id="edit" parameterType="models.works.Work">
         UPDATE workList
-        SET
-        <if test="status != null">
-            status=#{status},
-        </if>
-        <if test="subject != null">
-            subject=#{subject},
-        </if>
-        <if test="content != null">
-            content=#{content},
-        </if>
-        modDt=NOW()
+            SET
+            <if test="status != null">
+                status=#{status},
+            </if>
+            <if test="subject != null">
+                subject=#{subject},
+            </if>
+            <if test="content != null">
+                content=#{content},
+            </if>
+             modDt=NOW()
         WHERE workNo=#{workNo}
     </update>
 
@@ -39,13 +39,13 @@
 
     <select id="each" parameterType="models.works.Work" resultMap="workMap">
         SELECT w.*, u.userNm FROM workList w
-        LEFT JOIN users u ON w.userNo = u.userNo
-        WHERE w.workNo=#{workNo}
+                        LEFT JOIN users u ON w.userNo = u.userNo
+            WHERE w.workNo=#{workNo}
     </select>
 
     <select id="list" parameterType="models.works.Work" resultMap="workMap">
         SELECT w.*, u.userNm FROM workList w
-        LEFT JOIN users u ON w.userNo = u.userNo
+                LEFT JOIN users u ON w.userNo = u.userNo
         <trim prefix="WHERE" suffixOverrides="AND | OR">
             <if test="userNo >= 0">
                 w.userNo=#{userNo} AND

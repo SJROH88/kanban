@@ -12,13 +12,13 @@
         <title>${title}</title>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
         <link rel="stylesheet" type="text/css" href="${cssUrl}style.css" />
-        <c:if test="${addCss !=null}">
+        <c:if test="${addCss != null}">
         <c:forEach var="file" items="${addCss}">
             <link rel="stylesheet" type="text/css" href="${cssUrl}${file}.css" />
         </c:forEach>
         </c:if>
         <script src="${jsUrl}common.js"></script>
-        <c:if test="${addScript !=null}">
+        <c:if test="${addScript != null}">
         <c:forEach var="file" items="${addScript}">
             <script src="${jsUrl}${file}.js"></script>
         </c:forEach>
@@ -26,7 +26,7 @@
     </head>
     <body>
         <header>
-            <jsp:invoke fragment="header" />
+           <jsp:invoke fragment="header" />
         </header>
         <main>
             <jsp:doBody />

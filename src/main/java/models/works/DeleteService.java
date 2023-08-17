@@ -17,7 +17,7 @@ public class DeleteService {
         }
 
         Work work = workDao.get(workNo);
-        MemberUtil.isMine(req,work.getUserNo()); // 본인 작업 내용만 삭제 가능 체크
+        MemberUtil.isMine(req, work.getUserNo()); // 본인 작업 내용만 삭제 가능 체크
 
         if (!workDao.delete(workNo)) {
             throw new WorkDeleteException();

@@ -12,7 +12,7 @@ public class ScriptUtils {
             PrintWriter out = resp.getWriter();
             out.printf("<script>alert('%s');</script>", e.getMessage());
 
-            if(e instanceof NotAuthorizationException){ // 본인 작업 내용이 아닐 때
+            if (e instanceof NotAuthorizedException) { // 본인 작업 내용이 아닐때
                 goStep = -1;
             }
 

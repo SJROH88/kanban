@@ -12,8 +12,8 @@ import java.io.IOException;
 @WebServlet("/index.jsp")
 public class MainController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      req.setAttribute("addCss", new String[]{"member/login"});
-        ViewUtils.load(req,resp,"member","login");
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("addCss", new String[] {"member/login"});
+        ViewUtils.load(req, resp, "member", "login");
     }
 }

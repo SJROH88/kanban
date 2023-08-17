@@ -29,7 +29,7 @@ public class LoginService {
         // 아이디 저장 처리
         Cookie cookie = new Cookie("saveId", userId);
         cookie.setHttpOnly(true); // 스크립트에서 조회 X, 보안 O
-        if (request.getParameter("saveId") == null) { // 아이디 저장 미체크
+        if (request.getParameter("saveId") == null) { // 아이디 저장 미체크 
             // 기존 저장 쿠키 삭제
             cookie.setMaxAge(0);
         } else { // 아이디 저장 체크 상태
