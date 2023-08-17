@@ -16,17 +16,19 @@ public class FileInfo {
     private String fileType;
     private LocalDateTime regDt;
 
-    public String getUrl(HttpServletRequest request){
-        String url = request.getContextPath() + "/static/upload" + (id % 10) + "/"+id;
-        if(extension != null && !extension.isBlank()) url += "."+extension;
+    public String getUrl(HttpServletRequest request) {
+        String url = request.getContextPath() + "/static/upload/" + (id % 10) + "/" + id;
+        if (extension != null && !extension.isBlank()) url += "." + extension;
 
         return url;
-
     }
-    public String getPath(HttpServletRequest request){
+
+    public String getPath(HttpServletRequest request) {
         String uploadPath = request.getServletContext().getRealPath("/static/uploads");
 
         String path = uploadPath + "/" + (id % 10) + "/" + id;
-        if(extension !=null && !extension.isBlank()) path +="."+extesoin;
+        if (extension != null && !extension.isBlank()) path += "." + extension;
+
+        return path;
     }
 }
